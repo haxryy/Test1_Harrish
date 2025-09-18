@@ -175,13 +175,205 @@ The following transaction hashes demonstrate the protocol functionality as shown
 5. Explore different staking strategies based on your risk tolerance
 
 ### For Developers
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up environment variables
-4. Run local development: `npm run dev`
-5. Deploy contracts: `npm run deploy`
-6. Run tests: `forge test` or `npm run test`
-7. Run security analysis: `slither .` for vulnerability scanning
+
+#### Prerequisites
+- Node.js (v16 or higher)
+- Git
+- A Web3 wallet (MetaMask recommended)
+- Foundry (for smart contract development)
+
+#### Setup Instructions
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/haxryy/Test1_Harrish.git
+cd Test1_Harrish
+```
+
+2. **Install Foundry (if not already installed)**
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+3. **Setup Smart Contracts**
+```bash
+cd contracts
+forge install
+forge build
+```
+
+4. **Setup Frontend**
+```bash
+cd ../frontend
+npm install
+```
+
+5. **Environment Configuration**
+Copy the example environment files and configure them:
+```bash
+# For contracts
+cp .env.example .env
+
+# For frontend  
+cd frontend
+cp .env.example .env
+```
+
+Fill in the required values in both `.env` files (see Environment Variables section below).
+
+#### Running Tests
+
+**Smart Contract Tests:**
+```bash
+cd contracts
+
+# Run all tests
+forge test
+
+# Run tests with verbosity
+forge test -vvv
+
+# Run specific test file
+forge test --match-contract BLXPoolTest
+
+# Run tests with gas reporting
+forge test --gas-report
+
+# Run tests with coverage
+forge coverage
+```
+
+#### Running the Frontend
+
+1. **Development Mode:**
+```bash
+cd frontend
+npm run dev
+```
+The frontend will be available at `http://localhost:5173`
+
+2. **Production Build:**
+```bash
+cd frontend
+npm run build
+npm run preview
+```
+
+3. **Linting and Formatting:**
+```bash
+# Check code formatting
+npm run lint
+
+# Fix formatting issues
+npm run lint:fix
+
+# Type checking
+npm run type-check
+```
+
+#### Environment Variables
+
+**Contracts (.env)**
+```bash
+# Required for deployment
+PRIVATE_KEY=your_private_key_here
+SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/your_infura_key
+ETHERSCAN_API_KEY=your_etherscan_api_key
+
+# Optional
+MAINNET_RPC_URL=https://mainnet.infura.io/v3/your_infura_key
+```
+
+
+#### Deployment
+
+**Deploy to Sepolia:**
+```bash
+cd contracts
+
+# Deploy all contracts
+forge script script/Deploy.s.sol --rpc-url sepolia --broadcast --verify
+
+# Deploy individual contracts
+forge script script/Deploy.s.sol:DeployScript --sig "deployBLXOnly()" --rpc-url sepolia --broadcast
+```
+
+**Local Development:**
+```bash
+# Start local Anvil node
+anvil
+
+# Deploy to local network
+forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --broadcast
+```
+
+#### Security Analysis
+
+**Run Slither:**
+```bash
+cd contracts
+slither .
+```
+
+
+
+#### Troubleshooting
+
+**Common Issues:**
+
+1. **Foundry not found:**
+```bash
+# Install Foundry
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+2. **Node.js version issues:**
+```bash
+# Use Node Version Manager (nvm)
+nvm install 18
+nvm use 18
+```
+
+3. **Frontend build errors:**
+```bash
+# Clear node modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+4. **Wallet connection issues:**
+- Ensure you're on the correct network (Sepolia for testnet)
+- Check that your wallet has sufficient ETH for gas fees
+
+5. **Contract interaction failures:**
+- Verify contract addresses in `.env` file
+- Ensure contracts are deployed on the correct network
+- Check that you have approved token spending if required
+
+**Getting Test Tokens:**
+- ETH (Sepolia): [Sepolia Faucet](https://sepoliafaucet.com/)
+- Alternative ETH Faucet: [Alchemy Faucet](https://sepoliafaucet.com/)
+- For USDC tokens, use the mock USDC contract deployed at the address in the contracts table
+
+**Useful Commands:**
+```bash
+# Check Foundry installation
+forge --version
+
+# Update Foundry
+foundryup
+
+# Check Node.js version
+node --version
+
+# Check npm version  
+npm --version
+
+# Clear npm cache
+npm cache clean --force
+```
 
 ## Risk Considerations
 
