@@ -24,6 +24,14 @@ Blume Protocol consists of five core smart contracts that work together to provi
 | Staked BLX | `0xec16eE9362d310D42DF579AdA7e627fAf99F6FA7` | Liquid staking token (stBLX) |
 | BLX Vault | `0x0C7468Bd1eca2BD7d39aE496234427cD7FEb8344` | Secure time-locked vault |
 
+## Demo Transaction Hashes
+
+The following transaction hashes demonstrate the protocol functionality as shown in the demo video:
+
+- `0xf30f50c648df4feb49fbc9891678a62ba15e707639aaddc1938d95524d2a2302`
+- `0x70095ab5eb18a9e4e458383217cae7678c235d46b9b50b3d22e6cfc598ab20aa`
+- `0x2a56f2051131518855e8a5ef0eef0ff1b90fb8413282365bd25aa35b7e8c19e7`
+
 ## Core Features
 
 ### BLX Token
